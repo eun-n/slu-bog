@@ -12,6 +12,6 @@
 		<%= f.label :description %>
 		<%= f.text_area :description %>
 	</div>
-
+		<%= f.collection_check_boxes :tag_ids, @tags, :id, :name %>
 	<%= f.submit %>
 <% end %>

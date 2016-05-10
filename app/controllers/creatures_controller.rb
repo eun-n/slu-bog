@@ -10,10 +10,12 @@ class CreaturesController < ApplicationController
 
   def new
       @creature = Creature.new
+      @tags = Tag.all
   end
 
   def edit
     @creature = Creature.find params[:id]
+    @tags = Tag.all
   end
 
   def show
@@ -21,8 +23,9 @@ class CreaturesController < ApplicationController
   end
 
   def update
-    t = Creature.find params[:id]
-    t.update creature_params
+    c = Creature.find params[:id]
+    c.update creature_params
+    # update_tags(c)
     redirect_to creatures_path
   end
 
@@ -34,6 +37,20 @@ class CreaturesController < ApplicationController
   private
 
   def creature_params
-    params.require(:creature).permit(:description, :name)
+    params.require(:creature).permit(:description, :name, tag_ids: [])
   end
+
+  # def update_tags(creature)
+  #   # get the list of all checkboxes from the form
+  #   tags = params[:creature][:tags_ids]
+
+  #   # reset all the tags the creature currently has
+  #   creature.tags.clear
+
+  #   # go through al lthe tags from the form
+  #   tags.each do |id|
+  #     # only re-add the tags where checkboxes were checked
+  #     creature.tags << Tag.find(id) unless id.blank?
+  #   end
+  # end
 end
