@@ -9,7 +9,8 @@
 
 	<ul>
 	<% for tag in creature.tags %>
-		<li><%= tag.name %></li>
+		<li> <%= link_to tag.name, tag_path(tag) %>
+</li>
 	<% end %>
 	</ul>
 

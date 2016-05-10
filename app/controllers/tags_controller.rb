@@ -5,7 +5,7 @@ class TagsController < ApplicationController
 
   def create
     tag = Tag.create(tag_params)
-    redirect_to tags_path creature
+    redirect_to tags_path tag
   end
 
   def new
@@ -18,6 +18,7 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find params[:id]
+    @creatures = @tag.creatures
   end
 
   def update
