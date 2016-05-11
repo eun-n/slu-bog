@@ -8,10 +8,10 @@ $(document).ready(function() {
 			method: 'GET',
 			success: function(data) {
 				var contentSection = $('#content-section')
-					contentSection.html('');
+					// contentSection.html('');
 
 					data.forEach(function(creature) {
-						contentSection.append("<h2>"+ creature.name + "</h2><p>"+ creature.description "</p>");
+						console.log("<h2>"+ creature.name + "</h2><p>"+ creature.description "</p>");
 					});
 			},
 			error: function(err) {
