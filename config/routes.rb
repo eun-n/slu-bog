@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   get 'tags/destroy'
 
-  root 'creatures#index'
+  root 'main#index'
   get 'about' => 'main#about'
   
   resources :creatures
